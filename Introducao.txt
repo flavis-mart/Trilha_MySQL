@@ -1,0 +1,107 @@
+------ Atividades de Fixação ------------
+
+1. Explique o que é MySQL e cite ao menos três de suas vantagens.
+- MySQL se trata de um SGDB (sigla para Software de Gerenciamento de Banco de Dados) relacional.
+- Dentre suas principais vantagens estão: Alta performance, significando que possui capacidade de
+- lidar com grandes quantidades de operações e dados, mantendo a fluidez e velocidade adequadas; 
+- Integração com diversas linguagens, isso é uma vantagem por ser um grande facilitador, já que com
+- apenas um SGDB é possível trabalhar com tecnologias diferentes, servindo para propósitos diferentes; 
+- Grande comunidade e vasta documentação; faz com que aprender e lidar com erros seja mais fácil, pois
+- a comunidade e a documentação dificilmente não terá uma resposta para suas dúvidas e problemas.
+
+2. Qual a diferença entre um banco de dados relacional e um banco de dados não relacional? Dê exemplos práticos de uso.
+- Entre as principais diferenças entre esses dois bancos de dados está nas estruturas, onde:
+- Banco de dados relacional -> utiliza tabelas com esquemas bem definidos e relações explícitas;
+- Banco de dados não relacional -> utiliza uma estrutura mais flexível, já que foi criado para lidar com grandes volumes de dados;
+- Exemplo prático: 
+- Um banco de dados relacional organizaria os dados em tabelas, por exemplo os dados de uma sorveteria:
+- Haveria uma tabela com todos os dados dos produtos, clientes, vendas, estoques.
+- Enquanto o bando de dados não relacional trabalharia de forma mais flexível com documentos parecidos com um JSON,
+- agrupando as informações:
+- Imagine que exista um documento com a coleção de dados dos sorvetes -> {sabor: flocos, litros: 2, marca: kibom}
+
+3. Cite e explique os principais componentes da arquitetura do MySQL.
+- Tabelas: estruturas que armazenam os conjuntos de registros ou dados;
+- Colunas: significam os campos de informação, por exemplo: coluna nome da tabela clientes;
+- Linhas: juntando todos os dados das colunas temos um registro, seguindo o exemplo acima, todos os dados de um cliente;
+- Chaves primária e estrangeira: a primária é única e por isso identifica uma tabela, enquanto a estrangeira cria um relacionamento,
+- uma ponte, conexão entre uma tabela e outra;
+- Índices: servem como uma espécie de atalho para localizar os dados.
+
+4. Qual a função do motor de armazenamento do MySQL? Explique a diferença entre InnoDB e MyISAM.
+- O motor de armazenamento é aquele que trata: como os dados e os índices são armazenados no disco, o controle de concorrência,
+- o suporte das transações e recuperação dos dados após falhas no servidor.
+- Diferenças entre MyISAM e InnoDB:
+- basicamente o InnoDB hoje ganha do MyISAM em questão de vantagens, ele: suporta transações (ACID) enquanto o MyISAM não, seu nível
+- de bloqueio permite que mais de uma pessoa altere dados na mesma tabela simultâneamente (desde que não na mesma linha), tem uma recuperação
+- de falhas melhor e mais confiável, e a lista continua.
+
+5. Identifique e explique a função de três ferramentas de interface gráfica utilizadas para o MySQL.
+- MySQL Workbench -> Permite gerenciamento dos dados e das tabelas, consultas SQL porém seu diferencial está na modelagem de dados,
+- permitindo a criação de diagramas utilizando Forward Engeneering e Reverse Engineering;
+- PHPMyAdmin -> Sua vantagem é o fato de ser web, facilitando o acesso e uso. Permite todas as operações de gerenciamento e análise de dados;
+- DBeaver -> Atualmente, é muito popular por oferecer acesso a diversos SGDBS em um mesmo lugar. Trás praticidade para pessoas mais avançadas e
+- que utilizam com frequência, com opções de formatação, visualizações de dados, explícitas
+
+6. Descreva o processo de conexão ao MySQL via terminal. Quais são os comandos necessários?
+- Alguns comandos iniciais podem ser diferentes a depender do sistema operacional do usuário, porém o comando principal de conexão
+- é o: mysql -u root -
+- onde indicamos o usuário e a senha para acessar a conexão.
+
+7. Como é possível listar todos os bancos de dados existentes no MySQL? Escreva o comando SQL correspondente.
+- Utilizando o comando: SHOW DATABASES.
+
+8. Como criar uma conexão no MySQL Workbench? Liste o passo a passo.
+- Na tela inicial (Home), procure pela seção central chamada "MySQL Connections";
+- Clique no ícone de "+" (sinal de adição) pequeno que fica ao lado do título "MySQL Connections";
+- Preencha os dados na janela "Setup New Connection";
+- No canto inferior direito dessa mesma janela, clique no botão "Test Connection";
+- Se tudo estiver certo, aparecerá uma caixa de diálogo dizendo "Successfully made the MySQL connection";
+- Por fim: salve a conexão. Após o teste bem-sucedido, feche a mensagem de sucesso e clique no botão "OK" na janela principal de configuração.
+
+9. O que é e para que serve o comando USE nome_do_banco; no MySQL?
+- Se trata de um comando que usamos quando acessando o MySQL pelo terminal, este comando indica o banco de dados que será utilizado.
+
+10. No MySQL, qual é o comando para listar todas as tabelas de um banco de dados? Escreva o comando e um exemplo prático.
+- SHOW TABLES;
+- Exemplo:
+- O MySQL devolverá uma visualização em formato de grade listando as tabelas contidas ali, que se parecerá com isto:
+- Tables_in_sorveteria
+- clientes
+- sorvetes
+- estoque
+- pedidos
+
+11. Dê um exemplo prático de conexão ao MySQL utilizando o DBeaver. Quais são os parâmetros necessários para essa conexão?
+- Você primeiro clica no ícone de "Nova Conexão" no canto superior esquerdo e seleciona o MySQL;
+- Na aba "Main" (Principal) que se abrirá, você precisará preencher os seguintes parâmetros necessários:
+- Host (Servidor): O endereço onde o banco de dados está hospedado. Se for na sua máquina, use localhost ou 127.0.0.1.
+- Port (Porta): A porta de comunicação. O padrão do MySQL é 3306.
+- Database (Banco de Dados): O nome do banco específico que você quer abrir.
+- Username (Usuário): Seu usuário de acesso (ex: root).
+- Password (Senha): A senha correspondente ao usuário.
+
+
+12. Durante a conexão via terminal, o comando mysql -u root -p é utilizado. Explique o que cada parte desse comando significa.
+- mysql -> chama o programa;
+- -u root -> o U significa usuário e root é o usuário que está tentando o login;
+- -p -> significa P de password, que após clicarmos ENTER é solicitado a nossa senha.
+
+13. Cite as principais diferenças entre o MySQL Workbench, o DBeaver e o phpMyAdmin. Qual deles é mais indicado para o uso web?
+- Suas principais diferenças são 
+-> MySQL Workbench: Seu grande diferencial é ser construído especificamente para o MySQL;
+-> DBeaver: é uma ferramenta universal. Seu foco é a produtividade do desenvolvedor;
+-> phpMyAdmin: É uma aplicação web construída em PHP. Ele não é instalado no seu 
+- computador pessoal como um programa, mas sim no servidor web, e você o acessa pelo navegador.
+- Conclusão: o mais indicado para o uso web é justamente aquele que se destaca por essa característica: o phpMyAdmin.
+
+14. Suponha que você precise garantir que apenas usuários autenticados possam acessar um banco de dados MySQL. 
+Que práticas de segurança você aplicaria?
+- Controle de Usuários -> Criar um usuário específico com uma senha forte e dar a ele apenas as permissões estritamente necessárias;
+- Controle de Rede -> Configurar o MySQL para aceitar conexões apenas de IPs conhecidos.
+
+
+15. Explique o conceito de buffer de memória no MySQL e sua importância para a performance do banco de dados.
+- É um grande espaço reservado na memória RAM do servidor que funciona como um cache. O buffer de memória resolve
+- a operação mais lenta do banco: buscar dados no disco rígido. Ele guarda os dados mais procurados na RAM. Quando
+- a aplicação pede uma informação que já está no buffer, o MySQL a entrega muito mais rápido, garantindo a alta velocidade das consultas.
